@@ -181,3 +181,9 @@ Generated outputs include `artifacts/retriever_best.pt`, `artifacts/faiss.index`
 ## Acknowledgments
 
 Data comes from [McAuley Lab's Amazon Reviews 2023](https://huggingface.co/datasets/McAuley-Lab/Amazon-Reviews-2023).
+
+## Interactive demo
+
+Start the same API service, then open `http://127.0.0.1:8000/` for the NextPlay demo. Select a sample player to see their recent training history and Top-20 recommendations; switch between original retrieval order and LambdaRank reranking. Each ranked card shows its original retrieval position.
+
+The demo reads product titles and HTTPS image URLs from `data/raw/downloads/raw/meta_categories/meta_Video_Games.jsonl` on its first request. Without that optional metadata file, it displays item IDs and image placeholders. Product images load from their original hosts. Inference uses the existing local checkpoints; no retraining is needed. `/docs` and `/recommend` remain available.
